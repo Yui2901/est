@@ -1,0 +1,61 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Sistema de Estágio</title>
+  <link rel="stylesheet" href="home.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<body>
+  <div class="home-container">
+    <img src="logo_ifpa_Castanhal.png" alt="Logo do Sistema" class="logo">
+    <h1>Bem-vindo ao Sistema de Estágio</h1>
+    <p>Controle de estágios para alunos e professores.</p>
+
+    <form id="loginForm" class="login-form">
+      <label>Matrícula
+        <input type="text" id="matricula" required>
+      </label>
+
+      <label>Senha
+        <input type="password" id="senha" required>
+      </label>
+
+      <button type="submit">Entrar</button>
+    </form>
+
+    <p id="error" class="error-msg"></p>
+    <p class="cadastro-link">
+      Não tem uma conta? <a href="register.html">Cadastre-se</a>
+    </p>
+  </div>
+
+  <script>
+    const supabaseUrl = 'https://ivgttjxarydplupbsvut.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml2Z3R0anhhcnlkcGx1cGJzdnV0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIxNTgyODMsImV4cCI6MjA2NzczNDI4M30.TbLVYB9RoIQluVk3o4s36-2ksnzW23B3dX4p4sN6KhE';
+    const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+    document.getElementById('loginForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const matricula = document.getElementById('matricula').value;
+      const senha = document.getElementById('senha').value;
+
+      const { data, error } = await supabase
+        .from('usuarios')
+        .select('*')
+        .eq('matricula', matricula)
+        .eq('senha', senha)
+        .single();
+
+      if (data) {
+        localStorage.setItem('usuario', JSON.stringify(data));
+        localStorage.setItem('abaAtiva', '1'); // <- ABRE DIRETO NA SEGUNDA ABA
+        window.location.href = 'index.html';
+      } else {
+        document.getElementById('error').innerText = 'Matrícula ou senha incorretos.';
+      }
+    });
+  </script>
+</body>
+</html>

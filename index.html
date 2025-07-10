@@ -1,0 +1,88 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Controle de Estágio - Professor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Controle de Estágio - Professor</h2>
+
+    <div class="tabs">
+      <button class="tab active">Informações do Estágio</button>
+      <button class="tab">Horários Estágio</button>
+      <button class="tab">Frequência Estágio</button>
+    </div>
+
+    <form class="form-grid" id="estagio-form">
+      <fieldset>
+        <legend>Aluno</legend>
+        <label>Matrícula <input type="text" id="matricula" required></label>
+        <label>Nome <input type="text" id="nome" required></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Curso</legend>
+        <label><input type="text" id="curso" required></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Empresa/Instituição</legend>
+        <label><input type="text" id="empresa" required></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Período</legend>
+        <label>Início <input type="date" id="inicio" required></label>
+        <label>Fim <input type="date" id="fim" required></label>
+      </fieldset>
+
+      <label>Status
+        <select id="status">
+          <option value="Aprovado">Aprovado</option>
+          <option value="Pendente">Pendente</option>
+        </select>
+      </label>
+
+      <label>C.H. Aprovada <input type="number" id="ch" required></label>
+
+      <label>Resultado Final
+        <select id="resultado">
+          <option value="Aproveitamento">Aproveitamento</option>
+        </select>
+      </label>
+
+      <label>Situação
+        <select id="situacao">
+          <option value="Aprovado">Aprovado</option>
+          <option value="Reprovado">Reprovado</option>
+        </select>
+      </label>
+
+      <label>Supervisor
+        <input type="text" id="supervisor" required>
+      </label>
+
+      <label>Professor Orientador
+        <input type="text" id="orientador" required>
+      </label>
+
+      <label>Atividades <textarea id="atividades" required></textarea></label>
+      <label>Observação <textarea id="observacao"></textarea></label>
+
+      <div class="buttons">
+        <button type="button">Início</button>
+        <button type="button">Anterior</button>
+        <button type="button">Próximo</button>
+        <button type="button">Final</button>
+        <button type="reset" class="new">Novo</button>
+        <button type="button" class="delete">Excluir</button>
+        <button type="button">Imprimir</button>
+        <button type="submit">Salvar</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

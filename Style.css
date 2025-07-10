@@ -1,0 +1,152 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+/* Container principal */
+.container {
+  background: #fff;
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+  box-shadow: 0 0 10px #ccc;
+  border-radius: 8px;
+}
+
+/* Abas superiores */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  background: #ddd;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.tab.active {
+  background: #a3d9a5;
+  font-weight: bold;
+}
+
+/* Grade de formulário */
+.form-grid {
+  display: grid;
+  gap: 15px;
+}
+
+/* Fieldset com legenda */
+fieldset {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+legend {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Labels e entradas */
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+/* Inputs padrão */
+input, select, textarea {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+/* Textareas com altura padrão */
+textarea {
+  height: 60px;
+}
+
+/* Botões */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: flex-start;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  background: #ccc;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button.new {
+  background: #e07a5f;
+  color: white;
+}
+
+button.delete {
+  background: #f94144;
+  color: white;
+}
+
+/* RESPONSIVIDADE */
+
+@media (min-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  fieldset {
+    grid-column: span 2;
+  }
+
+  .buttons {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  input, select, textarea {
+    font-size: 16px;
+  }
+
+  .tab {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  button {
+    flex: 1 1 45%;
+    font-size: 14px;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+}
